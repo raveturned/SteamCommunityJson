@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Steam API</title>
+</head>
+<body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./scripts/mustache.js"></script>
+<script type="text/javascript" src="./scripts/steamapi.js"></script>
+<script type="text/javascript" src="./scripts/showapi.js"></script>
+
+
+<script id="api-template" type="x-tmpl-mustache">
+	{{#interfaces}}
+	<div>
+		{{name}}
+		<ul>
+		{{#methods}}
+			<li>
+				{{name}}/v000{{version}}(
+				{{#parameters}}
+					{{name}}
+				{{/parameters}}
+				)
+			</li>
+		{{/methods}}
+		</ul>
+	</div>
+	{{/interfaces}}
+</script>
+
+<div id="api-div"></div>
+</body>
+</html>
