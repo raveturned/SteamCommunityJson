@@ -21,9 +21,9 @@
 	function showLargeProfileInfo(data){
 		var response = data.response;
 		
-		var template = $('#large-profile-template').html();
-		Mustache.parse(template);   // optional, speeds up future uses
-		var rendered = Mustache.render(template, response.players[0]);
+		var source = $('#large-profile-template').html();
+		var template = Handlebars.compile(source);
+		var rendered = template(response.players[0]);
 		$('#profile-div').html(rendered);
 
 	}

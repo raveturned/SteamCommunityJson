@@ -1,21 +1,23 @@
 <html>
 <head>
 <title>Steam Explorer</title>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
 <body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="./scripts/mustache.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
 <script type="text/javascript" src="./scripts/steamapi.js"></script>
 <script type="text/javascript" src="./scripts/index.js"></script>
 
 <script id="large-profile-template" type="x-tmpl-mustache">
    <img src="{{avatar}}" />
-   <img src="{{avatarfull}}" />
-   <img src="{{avatarmedium}}" />
+   <!-- <img src="{{avatarfull}}" />
+   <img src="{{avatarmedium}}" /> -->
    {{personaname}}
 </script>
+<div id="header-div">
 Type a username: <input id="username" /> <button id="usernameButton">Submit</button>
-
+</div>
 <div id="profile-div"></div>
 </body>
 </html>

@@ -3,6 +3,7 @@ var steamApi = (function(){
 	var _steamKey="47D02F42306851556CED48DE0BAFC731";
 
 	var routes = {
+		getAppDetails: "http://store.steampowered.com/api/appdetails",
 		getSupportedAPIList: "http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/",
 		resolveVanityURL: "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/",
 		getPlayerSummariesV2: "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/",
@@ -53,17 +54,31 @@ var steamApi = (function(){
 		args = {
 			key: _steamKey,
 			steamids: id,
-			include_appinfo = true
+			include_appinfo: true
 		};
 		
 		$.get(routes.getOwnedGames, args, function(response){
 			callback(response);
 		})
+	}
+
+	function getAppDetails(appids, callback)
+	{
+		args = {
+			appids: appids.join(",")
+		};
+		
+		$.get(routes.getAppDetails, args, function(response){
+			callback(response);
+		})
 	}	
+
 	
 	_self.resolveVanityURL = resolveVanityURL;
 	_self.loadSupportedAPIList = loadSupportedAPIList;
 	_self.getPlayerSummaries = getPlayerSummaries;
+	_self.getOwnedGames = getOwnedGames;
+	_self.getAppDetails = getAppDetails;
 
 
 	
