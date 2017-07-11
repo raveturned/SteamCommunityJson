@@ -1,7 +1,22 @@
 (function(){
-		
+
+	var _storageAvailable = false;
+	var _workersAvailable = false;
+
 	$(document).ready(function(){
-		
+
+		if (typeof(Storage) !== "undefined") {
+			_storageAvailable = true;
+		} 
+		if (typeof(Worker) !== "undefined") {
+			_workersAvailable = true;
+		}
+		if (_workersAvailable && _storageAvailable) {
+			$("#no-features").hide();
+		}
+		else{
+			$("#content").hide();
+		}	
 
 		$("#usernameButton").click(function(){
 			var username = $("#username").val();
