@@ -4,10 +4,12 @@ var steamApi = (function(){
 
 	var routes = {
 		getAppDetails: "http://store.steampowered.com/api/appdetails",
-		getSupportedAPIList: "http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/",
-		resolveVanityURL: "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/",
+		getAppList: "http://api.steampowered.com/ISteamApps/GetAppList/v0002/",
+		getFriendList: "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/",
+		getOwnedGames: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/",
 		getPlayerSummariesV2: "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/",
-		getOwnedGames: "http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/"
+		getSupportedAPIList: "http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/",
+		resolveVanityURL: "http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/"
 	}
 
 	var _self = {}
@@ -25,7 +27,7 @@ var steamApi = (function(){
 		})
 	}
 	
-	function loadSupportedAPIList(callback)
+	function getSupportedAPIList(callback)
 	{
 		args = {
 			key: _steamKey
@@ -73,12 +75,32 @@ var steamApi = (function(){
 		})
 	}	
 
+	function getAppList(callback)
+	{		
+		$.get(routes.getAppList, args, function(response){
+			callback(response);
+		})
+	}
+
+	function getFriendList(id, callback)
+	{
+		args = {
+			key: _steamKey,
+			steamid: id
+		};		
+		$.get(routes.getFriendList, args, function(response){
+			callback(response);
+		})
+	}		
+
 	
-	_self.resolveVanityURL = resolveVanityURL;
-	_self.loadSupportedAPIList = loadSupportedAPIList;
-	_self.getPlayerSummaries = getPlayerSummaries;
-	_self.getOwnedGames = getOwnedGames;
 	_self.getAppDetails = getAppDetails;
+	_self.getAppList = getAppList;
+	_self.getFriendList = getFriendList;
+	_self.getOwnedGames = getOwnedGames;
+	_self.getPlayerSummaries = getPlayerSummaries;
+	_self.getSupportedAPIList = getSupportedAPIList;
+	_self.resolveVanityURL = resolveVanityURL;
 
 
 	

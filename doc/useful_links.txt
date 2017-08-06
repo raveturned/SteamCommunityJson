@@ -1,0 +1,10 @@
+Official API details:
+    Valve's jumpoff point for developer API - https://steamcommunity.com/dev
+    Valve dev wiki - https://developer.valvesoftware.com/wiki/Steam_Web_API
+    Self documenting API at http://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v0001/
+    Steamworks web API reference - https://partner.steamgames.com/doc/webapi
+        note that some calls require publisher API key
+
+Unofficial API details (e.g. storefront):
+    Storefront API: https://wiki.teamfortress.com/wiki/User:RJackson/StorefrontAPI
+

@@ -2,7 +2,7 @@
 	
 	$(document).ready(function(){
 		
-		steamApi.loadSupportedAPIList(showAPIList);
+		steamApi.getSupportedAPIList(showAPIList);
 		
 	})
 	
