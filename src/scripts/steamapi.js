@@ -55,8 +55,8 @@ var steamApi = (function(){
 	{
 		args = {
 			key: _steamKey,
-			steamids: id,
-			include_appinfo: true
+			steamid: id,
+			include_appinfo: 1
 		};
 		
 		$.get(routes.getOwnedGames, args, function(response){
@@ -76,7 +76,8 @@ var steamApi = (function(){
 	}	
 
 	function getAppList(callback)
-	{		
+	{	
+		args = {};
 		$.get(routes.getAppList, args, function(response){
 			callback(response);
 		})

@@ -11,15 +11,21 @@
 
 <script id="large-profile-template" type="x-tmpl-mustache">
    <img src="{{avatar}}" />
-   <!-- <img src="{{avatarfull}}" />
-   <img src="{{avatarmedium}}" /> -->
    {{personaname}}
 </script>
+<script id="app-template" type="x-tmpl-mustache">
+    <div id="app-{{appid}}">
+    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_icon_url}}.jpg" />
+    {{name}}
+    {{playtime_forever_hours}}h
+    <div>
+ </script>
 <div id="content">
     <div id="header-div">
     Type a username: <input id="username" /> <button id="usernameButton">Submit</button>
     </div>
     <div id="profile-div"></div>
+    <div id="games-div"></div>
 </div>
 <div id="no-features">
     Sorry, this page requires HTML5 features which your browser doesn't support.
